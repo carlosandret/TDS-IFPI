@@ -1,0 +1,6 @@
+fatias = int(input('Quantas fatias tem a pizza? '))
+amigos = int(input('Quantos amigos irão comer a pizza? '))
+divisão = (fatias//amigos)
+resto = (fatias%amigos)
+print('Cada amigo receberá:',divisão,'fatias')
+print('Irá sobrar',resto,'fatias')
