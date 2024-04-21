@@ -1,0 +1,61 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to left,rgb(54, 52, 52),rgb(109, 178, 224), black);
+    color: white;   
+}
+
+body, h1 {
+    margin: 0;
+    margin: 0;
+}
+
+.conteudo,.lista{
+    padding-left: 10%;
+    font-size: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    height: 10vh;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+h1, h2{
+    background-color: darkslategray;
+    font-weight: bolder;
+}
+
+p{
+    text-align: justify;
+}
+
+.lista{
+    line-height: 2.0;
+}
+
+
+ol{
+    list-style-type: upper-roman;
+}
+
+.placa1{
+    list-style-image: url('imagens/placa\ faixa\ \(2\).png');
+}
+
+.placa2{
+    list-style-image: url(imagens/placa\ mão\ dupla.png);
+}
+
+.placa3{
+    list-style-image: url(imagens/placa\ proibido\ pedestres.png);
+}
+
+.placa4{
+    list-style-image: url(imagens/animais\ selvagens.png);
+}
+
+.placa5{
+    list-style-image: url(imagens/placa\ limite\ de\ velocidade.png);
+}

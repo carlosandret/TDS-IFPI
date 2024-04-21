@@ -1,0 +1,98 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    background: linear-gradient(to right, lightblue, white);
+}
+
+h1, h2{
+    background-color: black;
+    color: lightgray;
+}
+
+h1{
+    height: 10vh;
+    text-align: center;
+    margin-top: 0;
+}
+
+
+td, th{
+    border: 1px solid black;
+    padding: 1%;
+}
+table{
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.tabela1{
+    width: 70%;
+    height: 30vh;
+}
+
+.tabela2{
+    width: 40%;
+}
+
+.tabela3{
+    width: 60%;
+}
+
+.tabela4{
+    width: 50%;
+    height: 30vh;
+}
+
+.top{
+    vertical-align: top;
+    text-align: center;
+}
+
+.bottom{
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.preto-fundo{
+    background-color: black; 
+}
+.branco-fundo{
+    background-color: white; 
+}
+.q-preto{
+    background-color: black; 
+    background-image: url(imagens/peça_branca-removebg-preview.png);
+}
+.q-branco{
+    background-image: url(imagens/peça_preta-removebg-preview.png);
+    background-color: black; 
+}
+
+
+
+.tabuleiro{
+    width: 40%;
+    height: 75vh;
+    margin: auto;
+}
+
+.numero{
+    text-align: center;
+}
+
+.tabela6{
+    width: 80%;
+}
+
+.tabela6 th{
+    background-color: black;
+    color: white;
+}
+
+.par{
+    background-color: rgb(115, 165, 223);
+}
+
+.impar{
+    background-color: lightgray;
+}
