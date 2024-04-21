@@ -1,0 +1,17 @@
+/*
+    paleta: https://color.adobe.com/pt/search?q=Neutral%20palette&t=term
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+h1 {    
+    background-color: #606B73;
+}
+
+h2 {
+    background-color:#7A7A7A;
+}

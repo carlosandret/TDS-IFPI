@@ -1,0 +1,5 @@
+body {
+    color: white;
+    background-image: conic-gradient( blue, black, green, red);
+    /*height: 100vh;*/
+}

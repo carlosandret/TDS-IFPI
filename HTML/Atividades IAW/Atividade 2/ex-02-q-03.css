@@ -1,0 +1,5 @@
+body {
+    color: white;
+    background-image: radial-gradient(rgba(0, 0, 255, 50%), black);
+    /*height: 100vh;*/
+}

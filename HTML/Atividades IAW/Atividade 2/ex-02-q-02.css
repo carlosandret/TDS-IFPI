@@ -1,0 +1,4 @@
+body {
+    background-image: linear-gradient(red,orange,yellow, green, blue, #00677c, violet);
+    height: 100vh;
+}
