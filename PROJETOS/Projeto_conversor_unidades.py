@@ -183,7 +183,7 @@ def octal_hexadecimal(num):
     return decimal_hexadecimal(num)
 
 def main():
-    print('''<-------- CONVERSOR DE UNDADES -------->''')
+    print(\033[1;92m", '<-------- CONVERSOR DE UNDADES -------->', "\033[m")
     base_entrada = input('''Selecione qual a base do seu número:
         (1)-Decimal
         (2)-Binário
