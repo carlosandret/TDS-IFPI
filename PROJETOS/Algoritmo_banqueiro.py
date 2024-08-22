@@ -51,7 +51,7 @@ def main():
 
     print(f"Quantidade recursos Disponíveis (A): {A}")
     print(f"Total de recursos do sistema (E): {E}")    
-    print("\033[1;92m", '\nO sistema é completamente seguro!!', "\033[m") if A == E else print("\033[1;92m", 'O programa não é seguro!', "\033[m")
+    print("\033[1;92m", '\nO sistema é completamente seguro!!', "\033[m") if A == E else print("\033[1;31m",'\nO programa não é seguro!!', "\033[m")
     
 if __name__=="__main__":
     main()
