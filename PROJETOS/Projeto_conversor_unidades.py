@@ -202,7 +202,7 @@ def main():
         # Decimal --> binário 
     if base_entrada == "1" and base_saida == "2":
         resultado = decimal_binario(numero)
-        print(f"O número {numero} em Binário é {resultado}.")
+        print(f"O número {numero} em Binário é {resultado.lstrip()}.")
         # Decimal --> octal 
     elif base_entrada == "1" and base_saida == "3":
         resultado = decimal_octal(numero)
