@@ -1,0 +1,30 @@
+<!-- Declarar Variáveis e Exibir a Soma.
+Crie um arquivo HTML que declare duas variáveis usando var. As variáveis devem
+armazenar dois números inteiros. Calcule a soma dessas variáveis e exiba o resultado em um
+parágrafo usando document.write(). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Questão 09</h1>
+    <br>
+    <h2>Troca de texto</h2>
+
+    <h1 id="titulo-1">Título principal da página</h1>
+    <p id="paragrafo-1">Parágrafo principal</p>
+
+    <script>
+        var titulo_1 = document.getElementById("titulo-1").innerHTML;
+        var paragrafo_1 = document.getElementById("paragrafo-1").innerHTML;
+            
+            document.getElementById("titulo-1").innerHTML = paragrafo_1;
+            document.getElementById("paragrafo-1").innerHTML = titulo_1;
+
+    </script>
+</body>
+</html>
