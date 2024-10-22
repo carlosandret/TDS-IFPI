@@ -11,20 +11,28 @@ innerHTML para exibir todas essas informações em um único parágrafo, separad
     <title>Document</title>
 </head>
 <body>
-    <h1>Questão 09</h1>
-    <br>
-    <h2>Troca de texto</h2>
-
-    <h1 id="titulo-1">Título principal da página</h1>
-    <p id="paragrafo-1">Parágrafo principal</p>
+    <!-- Endereço em um único parágrafo -->
+    <h1>Exibir Endereços em um Único Parágrafo</h1>
+    <h2>Logradouro:</h2>
+    <p id="endereço">Rua Avenida mix melão</p>
+    <h2>Número:</h2>
+    <p id="numero">238</p>
+    <h2>Bairro:</h2>
+    <p id="bairro">Pedra Mole</p>
+    <h2>Complemento:</h2>
+    <p id="complemento">Predio jardim</p>
+    <h2>Cidade:</h2>
+    <p id="cidade">Teresina</p>
 
     <script>
-        var titulo_1 = document.getElementById("titulo-1").innerHTML;
-        var paragrafo_1 = document.getElementById("paragrafo-1").innerHTML;
-            
-            document.getElementById("titulo-1").innerHTML = paragrafo_1;
-            document.getElementById("paragrafo-1").innerHTML = titulo_1;
-
+        var endereco = document.getElementById('endereço').innerHTML;
+        var numero = document.getElementById('numero').innerHTML;
+        var bairro = document.getElementById('bairro').innerHTML;
+        var complemento = document.getElementById('complemento').innerHTML;
+        var cidade = document.getElementById('cidade').innerHTML;
+        document.write('<h1> Endereço de Aluno:</h1>')
+        document.write('<p>' + logradouro + ', ' + numero + ', ' + complemento + ' - ' + bairro + '.' + cidade + '.');
     </script>
+
 </body>
 </html>
