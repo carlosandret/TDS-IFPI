@@ -15,7 +15,6 @@ class Veiculo:
         self.proprietario = proprietario
         self.quilometragem = quilometragem
 
-
     # Funções para alterar os parãmetros
     def mudar_cor(self, cor):
         self.cor = cor    
@@ -46,11 +45,20 @@ def main():
     --> '''))
     
         if opcao == 1:
-            meu_carro.mudar_cor(input('Digite a cor: '))
+            cor = input('Digite a cor: ')
+            if cor == '':
+                meu_carro.cor = meu_carro.cor
+            else: meu_carro.mudar_cor(cor)                
         elif opcao == 2:
-            meu_carro.mudar_placa(input('Digite a nova placa: '))
+            placa = input('Digite a nova placa: ')
+            if placa == '':
+                meu_carro.placa = meu_carro.placa
+            else: meu_carro.mudar_placa()
         elif opcao == 3:
-            meu_carro.mudar_proprietario(input('Digite o novo proprietario: '))
+            proprietario = input('Digite o novo proprietario: ')
+            if proprietario == '':
+                meu_carro.proprietario = meu_carro.proprietario
+            else: meu_carro.mudar_proprietario()
         elif opcao == 4:
             valor = int(input('Digite a nova quilometragem: '))
             # Limita o valor da quilometragem
@@ -62,4 +70,3 @@ def main():
         print(meu_carro)
 if __name__=='__main__':
     main()
-
