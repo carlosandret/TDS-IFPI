@@ -61,5 +61,5 @@ var caixaTexto1 = getById('caixaTexto1');
 caixaTexto1.addEventListener('keyup', funcao);
 function funcao (){
     let caixaTexto2 = getById('caixaTexto2');
-    caixaTexto2.value = caixaTexto1.value
+    caixaTexto2.value = caixaTexto1.value;
 }
