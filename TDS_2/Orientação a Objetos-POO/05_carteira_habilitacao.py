@@ -3,7 +3,6 @@
 # da classe e métodos para manipulação dos atributos mutáveis. Faça todas as validações
 # possíveis. Crie objetos para testar os métodos implementados.
 
-# Carlos
 class CNH:
     def __init__(self ,nome , validade, categoria, cpf, observacoes = 'Sem observações'):
         self.nome = nome
