@@ -19,23 +19,30 @@ class Cartao_embarque:
         self.hora = hora
         self.status_checkin = status_checkin
         self.num_assento = num_assento
+        self.assentos = assentos_do_voo()
     
     def realiza_checkin(self):
-        self.status_checkin = 'Realizado'
-        self.assentos = assentos_do_voo()
-        self.num_assento = choice(self.assentos)
+            self.status_checkin = 'Realizado'
+            self.num_assento = choice(self.assentos)
 
+    #Função para alterar o assento do passageiro
     def altera_assento(self, n_assento):
         if self.status_checkin == 'Realizado':
-            if self.confere_assento_disponivel(n_assento):
+            #confere se o assento está disponível antes de adicionar
+            try: 
+                self.confere_assento_disponivel(n_assento)
                 self.num_assento = n_assento
-            else:
-                return 'Este assento não está disponível'
+            except ValueError:
+                print('Erro: este assento não está disponível')
         else:
             return 'Realize o check-in antes de trocar de assento'
     
     def confere_assento_disponivel(self, n_assento):
-        return n_assento not in self.assentos
+        return n_assento in self.assentos
+    
+    def certifica_apenas_um_checkin(self):
+        if self.status_checkin == 'Realizado':
+            pass
 
     def __str__(self):
         s1 = f'Nome passageiro: {self.nome_passageiro}\nNúmero do voo: {self.numero_voo}\nCógigo da reserva: {self.codigo_reserva}'
@@ -54,12 +61,16 @@ def menu_cartao_embarque(nome_passageiro, numero_voo, cod_reserva, data, hora):
     
         if opcao == 1:
             meu_cartao_embarque.realiza_checkin()
+            print(meu_cartao_embarque)
         elif opcao == 2:
-            assento = int(input('Digite o número do novo assento: '))
+            assento = int(input(f'Escolha o novo assento: {meu_cartao_embarque.assentos} '))
             meu_cartao_embarque.altera_assento(assento)
+            print(meu_cartao_embarque)
         elif opcao == 3:
             break
-        return meu_cartao_embarque   
+        else: print('Escolha uma opção válida!')
+
+    return meu_cartao_embarque   
     
 def main():
     cartao_1 = menu_cartao_embarque('Carlos André', 13, 'DEV202', '13/01/2024', '12:00')
