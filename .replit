@@ -1,4 +1,8 @@
 modules = ["python-3.12", "web", "nodejs-20", "python-base-3.13"]
+run = "Python"
 
 [nix]
 channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "Python"]
