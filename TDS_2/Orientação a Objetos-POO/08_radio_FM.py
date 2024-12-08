@@ -118,7 +118,7 @@ class RadioFM:
                 # Faz a busca do indice correspondente na lista
                 indice_atual = frequencias.index(self.frequencia_atual)
                 # Se o indice for maior que o da última frequência ele retorna para o da primeira frequência
-                if indice_atual >= 3:
+                if indice_atual >= len(frequencias)-1:
                     prox_indice = 0
                     self.frequencia_atual = frequencias[prox_indice]
                     self.estacao_atual = estacoes[self.frequencia_atual]
