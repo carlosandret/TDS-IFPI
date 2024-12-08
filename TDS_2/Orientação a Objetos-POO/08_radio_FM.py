@@ -115,9 +115,9 @@ class RadioFM:
             # Caso não seja colocado parâmetro   
             else:
                 prox_indice = 1
-                # Faz a busca do item correspondente na lista
+                # Faz a busca do indice correspondente na lista
                 indice_atual = frequencias.index(self.frequencia_atual)
-                # Se o indice for maior que o último valor ele retorna para a primeira frequência
+                # Se o indice for maior que o da última frequência ele retorna para o da primeira frequência
                 if indice_atual >= 3:
                     prox_indice = 0
                     self.frequencia_atual = frequencias[prox_indice]
