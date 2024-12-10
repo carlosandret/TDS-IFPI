@@ -1,5 +1,5 @@
-estacoes = {89.5: 'Cocais', 91.5: 'Mix', 94.1: 'Boa', 99.1: 'Clube'}
-frequencias = [89.5, 91.5, 94.1, 99.1]
+estacoes = {89.5: 'Cocais', 91.5: 'Mix', 94.1: 'Boa', 99.1: 'Clube', 100: 'RadioFM'}
+frequencias = list(estacoes.keys())
 
 class RadioFM:
     def __init__(self, vol_max, estacoes):
@@ -99,23 +99,21 @@ class RadioFM:
             # Caso seja digitado algo diferente de número
             else:
                 print('Digite um valor válido!!')    
-        else: print('Não pode alterar o volume de o rádio estiver desligado!!')
-        
-        
+        else: print('Não pode alterar o volume de o rádio estiver desligado!!')        
         
     def mudar_frequencia(self, frequencia = 0):
-        if self.ligado == True:
+        if self.ligado:
             # Confere se o parâmetro é diferente de zero e se é um número
             if frequencia != 0 and self.confere_nao_e_letra(str(frequencia)):
                 self.frequencia_atual = frequencia
                 if frequencia in estacoes:
                     self.estacao_atual = estacoes[frequencia]
                 else: 
-                    self.estacao_atual = 'estação inexistente'
+                    self.estacao_atual = 'Estação inexistente'
             # Caso não seja colocado parâmetro   
             else:
                 prox_indice = 1
-                # Faz a busca do indice correspondente na lista
+                # Faz a busca do indice atual na lista de frequências
                 indice_atual = frequencias.index(self.frequencia_atual)
                 # Se o indice for maior que o da última frequência ele retorna para o da primeira frequência
                 if indice_atual >= len(frequencias)-1:
@@ -135,7 +133,6 @@ class RadioFM:
         b = f'\nFrequênia atual: {self.frequencia_atual}\nEstação atual: {self.estacao_atual}'
         c = f'\nAntena habilitada: {self.antena_habilitada}\n'
         return a+b+c
-
 
 def main():
     meu_radio = RadioFM(100, estacoes)
@@ -158,5 +155,6 @@ def main():
     print(meu_radio)
     meu_radio.diminuir_volume()
     print(meu_radio)
+    
 if __name__ == '__main__':
     main()
