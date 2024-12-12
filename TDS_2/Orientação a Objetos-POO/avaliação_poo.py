@@ -1,5 +1,4 @@
 # Avaliação POO
-
 # Dupla: 
 # - Carlos André Teixeira de Moura
 # - Luis Henrique Nunes Araújo 
@@ -18,6 +17,7 @@ class MáquinaDeCafé:
         self.__temperatura_max = temperatura_max
         self.nivel_min_cafe = 50
         self.ordem = ordem
+        
     @property
     def capacidade_reservatorio(self):
         return self.__capacidade_reservatorio
@@ -140,8 +140,5 @@ def main():
     print(maquina_3)
     maquina_3.preparar_cafe()
     print(maquina_3)
-
-
-
 if __name__=='__main__':
     main()
