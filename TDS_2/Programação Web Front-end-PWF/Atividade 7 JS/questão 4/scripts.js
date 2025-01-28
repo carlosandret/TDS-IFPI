@@ -8,6 +8,13 @@ async function consultarPreco() {
     let moedaBase = getByID('moedaBase').value.toUpperCase(); // Moeda base (ex.: BTC)
     let moedaConversao = getByID('moedaConversao').value.toUpperCase(); // Moeda de conversão (ex.: USDT)
     let resultado = getByID('resultado');
+
+    // Valida se os campos estão vazios antes de consultar
+    if (!moedaBase || !moedaConversao) {
+        resultado.innerHTML = 'Por favor, preencha ambos os campos antes de consultar.';
+        return;
+    }
+
     let url =
     `https://api.binance.com/api/v3/ticker/price?symbol=${moedaBase}${moedaConversao}`;
 try {
