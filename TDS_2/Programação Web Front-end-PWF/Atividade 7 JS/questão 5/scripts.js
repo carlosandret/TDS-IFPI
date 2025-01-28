@@ -36,6 +36,7 @@ botaoEmoji.addEventListener('click', async () => {
         if (!response.ok) {
             throw new Error(`Erro ao buscar o emoji: ${response.status}`);
         }
+
         let data = await response.json();
         resultado1.innerHTML = `Emoji: ${data.htmlCode.join('')} - Nome: ${data.name}`;
     } catch (error) {
