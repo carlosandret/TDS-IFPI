@@ -18,7 +18,7 @@ def main():
             
             if altura <= 0 or sexo not in [1, 2]:
                 print("\nERRO: Altura deve ser maior que zero e o sexo tem que ser 1 ou 2!")
-                return
+                main()
             else:
                 print(f"O seu peso ideal é: {peso_ideal(altura, sexo):.2f}")
             break
