@@ -13,6 +13,5 @@ def main():
             break
         except:
             print("\nERRO: Temperatura inválida, tente novamente!")
-
 if __name__ == "__main__":
     main()
