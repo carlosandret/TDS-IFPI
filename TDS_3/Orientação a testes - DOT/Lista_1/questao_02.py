@@ -2,14 +2,12 @@
 # do círculo e outra função chamada perímetro que calcula e retorna o perímetro do círculo.
 # Área = PI * r2; Perímetro = PI * 2 * r;
 
-
 def area(raio):
     return 3.14 * raio **2
 
 def perimetro(raio):
     return 3.14 * 2 * raio
-
-
+    
 def main():
     while True:
         try:
@@ -19,7 +17,5 @@ def main():
             break
         except:
             print("\nERRO: Digite um valor válido!")
-            
-
 if __name__ == "__main__":
     main()
