@@ -26,6 +26,5 @@ def main():
                 continue
         except:
             print("\nERRO: Entrada inválida, digite apenas números!")
-    
 if __name__=="__main__":
     main()
