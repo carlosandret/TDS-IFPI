@@ -20,7 +20,6 @@ def main():
                 print(f"\nO fatorial de {numero} é: {fatorial(numero)}")
             break
         except:
-            print("\nERRO: Entrada inválida, digite somente números inteiros!")
-            
+            print("\nERRO: Entrada inválida, digite somente números inteiros!")            
 if __name__=="__main__":
     main()
