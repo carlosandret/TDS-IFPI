@@ -32,6 +32,5 @@ def main():
             print("\nERRO: Entrada inválida, digite apenas números!")
 
     print(f"O maior da lista das quatro séries {lista_series} é: {max(lista_series[0], lista_series[1], lista_series[2], lista_series[3])}")
-
 if __name__=="__main__":
     main()
