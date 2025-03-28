@@ -19,7 +19,6 @@ def main():
                 print(f"\nA soma do intervalo entre {n1} e {n2} é: {calcula_soma(n1, n2)}")
                 break
         except:
-            print("\nERRO: Entrada inválida, digite apenas números!")
-    
+            print("\nERRO: Entrada inválida, digite apenas números!")    
 if __name__=="__main__":
     main()
