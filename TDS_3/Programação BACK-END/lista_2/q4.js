@@ -24,9 +24,7 @@ Saldo insuficiente! não foi possível realizar o saque.`;
     realizaTrasferencia(contaDestino, valor) {
         if (valor > this.saldo) {
             console.log("\nSaldo insuficiente!");
-        }
-        
-        else {
+        }else {
             this.saldo -= valor;        
             console.log(`Transferência realizada com sucesso! Saldo atual: ${this.saldo}`); 
         }
