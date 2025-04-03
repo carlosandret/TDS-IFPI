@@ -37,18 +37,18 @@ def qtd_pares_impares(lista_numeros):
     return num_pares, num_impares, qtd_par, qtd_impar
 
 def main():
-    try:
+    while True:
         numeros = gera_lista(100)
+        if type(numeros) != str: 
+            numeros_pares, numeros_impares, qtd_pares, qtd_impares = qtd_pares_impares(numeros)
         
-        numeros_pares, numeros_impares, qtd_pares, qtd_impares = qtd_pares_impares(numeros)
-        
-        print(f"")
-        print(f'''{'='*20} lista: {numeros} {'='*20}
-            \nA lista possui {qtd_pares} números pares!
-        \nNúmeros pares: {numeros_pares}
-            \nA lista ossui {qtd_impares} números ímpares!
-        \nNúmeros ímpares: {numeros_impares}''')
-    except:
-        print("Entrada inválida! Digite apenas números.")
+            print(f'''{'='*20} lista: {numeros} {'='*20}
+                \nA lista possui {qtd_pares} números pares!
+            \nNúmeros pares: {numeros_pares}
+                \nA lista possui {qtd_impares} números ímpares!
+            \nNúmeros ímpares: {numeros_impares}''')
+            break
+        else:
+            print("Entrada inválida! a lista deve ser de números, tente novamente!")
 if __name__=="__main__":
     main()

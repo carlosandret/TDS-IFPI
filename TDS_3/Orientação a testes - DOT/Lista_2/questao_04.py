@@ -3,7 +3,7 @@
 # b) O menor elemento da lista e em que posição esse elemento se encontra.
 
 from random import randint
-# Função que gera uma lista aleatória com uma quantidade especificada de números, com intervalo de 1 a 100
+# Função que gera uma lista aleatória com uma quantidade especificada de números, com intervalo de 1 a 50
 def gera_lista(qtd_num):
     lista = []
     while len(lista) < qtd_num:
@@ -30,16 +30,17 @@ def posicao_minimo(lista):
     return lista.index(menor)+1, menor 
     
 def main():
-    try:
+    while True:
         numeros = gera_lista(15)
-        posicao_maior, maior = posicao_maximo(numeros)
-        posicao_menor, menor = posicao_minimo(numeros)
-        
-        print(f'''\nLista: {numeros}
-    \nO maior elemento é: {maior}, está na posição {posicao_maior}
-    \nO menor elemento é: {menor}, está na posição {posicao_menor}''')
-    except:
-        print("Entrada inválida! Digite apenas números.")
-    
+        if type(numeros) != str:
+            posicao_maior, maior = posicao_maximo(numeros)
+            posicao_menor, menor = posicao_minimo(numeros)
+            
+            print(f'''\nLista: {numeros}
+        \nO maior elemento é: {maior}, está na posição {posicao_maior}.
+        \nO menor elemento é: {menor}, está na posição {posicao_menor}.''')
+            break
+        else:
+            print("Entrada inválida! a lista deve ser de números, tente novamente!")
 if __name__=="__main__":
     main()
