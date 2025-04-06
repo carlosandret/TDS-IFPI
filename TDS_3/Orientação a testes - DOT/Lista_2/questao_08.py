@@ -2,6 +2,7 @@
 # ocorreu a letra ‘A’.
 # OBS: Fazer crítica na entrada do caractere para aceitar somente letras.
 
+#Função que confere quantas vezes a letra foi repetida na lista
 def confere_repeticao(lista, letra):
     cont = 0
     for i in lista:
@@ -11,9 +12,11 @@ def confere_repeticao(lista, letra):
 
 def main():
     while True:
-        try:
-            l_alfabeto = ['A','A',"A","A","E","Y","T","I","U","O","G","G","G","G","G","D","D"]
-            letra = input("\nDigite uma letra do alfabeto: ").upper()
+        l_alfabeto = ['A','A',"A","A","E","Y","T","I","U","O","G","G","G","G","G","D","D"]
+        letra = input("\nDigite uma letra do alfabeto: ").upper()
+                
+        # Método inbutido do python que confere se o valor é uma letra
+        if letra.isalpha():
             num_repeticao = confere_repeticao(l_alfabeto, letra)
             print(f"\n{'='*10} Lista: {l_alfabeto} {'='*10}")
             if num_repeticao == 0:
@@ -23,7 +26,7 @@ def main():
             else:
                 print(f"\nA letra '{letra}' se repete {num_repeticao} vezes na lista")
             break
-        except:
+        else:
             print("\nERRO: Digite apenas letras, tente novamente!")
 if __name__=="__main__":
     main()

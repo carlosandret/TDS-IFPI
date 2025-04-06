@@ -1,6 +1,7 @@
 # 7) Dada uma lista contendo 10 elementos numéricos, elabore um programa que verifique se um
 # outro valor dado pertence ou não à lista.
 
+# Função que confere se um número está presente na lista, retorna um valor booleano
 def verifica_num_lista(lista, num):
     if num in lista:
         return True
