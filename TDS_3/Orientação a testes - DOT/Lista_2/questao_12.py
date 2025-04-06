@@ -2,3 +2,4 @@
 # o cartão gabarito;
 # o número de alunos da turma;
 # o cartão de respostas para cada aluno, contendo o seu número e suas respostas. 
+

@@ -11,33 +11,45 @@
 # ——————–
 # Digite sua escolha:_
 
-def main():
-    while True:
-        try:
-            num_posicoes = int(input("Digite a quantidade de posições da lista: "))
-            lista = []
-            
-            while True:
-                print(f'''\n{'='*10} MENU {'='*10}
-                \n1) Cadastrar nome
-                \n2) Pesquisar nome
-                \n3) Listar todos os nomes
-                \n0) Sair do programa''')
-                opcao = int(input("Digite sua escolha: "))
-                if opcao == 1:
-                    nome = input("Digite o nome que deseja adicionar: ")
-                    if len(lista) <= num_posicoes:
-                        lista.append(nome)
-                    else:
-                        print("ERRO: A lista já alcançou a quantidade máxima!")
-                elif opcao == 2:
-                    nome = input("Digite o nome que deseja pesquisar: ")
-                    for i in lista:
-                        if 
-                
-        except:
-            print("ERRO: Digite um valor numérico, tente novamente!")
+def main():    
+    try:
+        num_posicoes = int(input("\nDigite a quantidade de posições da lista: "))
+        lista = []
         
-
+        while True:
+            print(f'''\n{'='*10} MENU {'='*10}
+1) Cadastrar nome
+2) Pesquisar nome
+3) Listar todos os nomes
+0) Sair do programa''')
+            opcao = int(input("\nDigite sua escolha: "))
+            if opcao == 1:
+                nome = input("\nDigite o nome que deseja adicionar: ")
+                if len(lista) >= num_posicoes:
+                    print("\nERRO: A lista já alcançou a quantidade máxima!")
+                else:
+                    lista.append(nome)      
+                                  
+            elif opcao == 2:
+                nome = input("\nDigite o nome que deseja cadastrar: ")
+                if nome in lista:
+                    print(f"\nO nome {nome} ESTÁ na lista, na posição {lista.index(nome)+1}.")
+                else:
+                    print(f"\nO nome {nome} NÃO está na lista.")
+                    
+            elif opcao == 3:
+                if len(lista) == 0:
+                    print("\nA lista está vazia")
+                else:
+                    print(f"\nLISTA DE NOMES: {lista}")
+                    
+            elif opcao == 0:
+                print("\nEncerrando programa...")                
+                break
+            else:
+                print("\nERRO: Digite uma opção válida!")                
+    except ValueError:
+        print("\nERRO: Digite um valor numérico para a quantidade de posições, tente novamente!")
+        main()
 if __name__=="__main__":
     main()
