@@ -3,7 +3,7 @@
 # também o faturamento total que é o somatório de todos os faturamentos, a média dos faturamentos
 # e quantos faturamentos estão abaixo da média.
 
-# Função que gera uma lista aleatória com uma quantidade especificada de números, com intervalo de 1 a 10
+# Função que gera uma lista aleatória com uma quantidade especificada de números, com intervalo de 1 a 60
 from random import randint
 def gera_lista(qtd_num):
     lista = []
