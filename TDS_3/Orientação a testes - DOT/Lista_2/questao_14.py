@@ -22,7 +22,7 @@ def main():
             print("\nERRO: Entrada inválida, digite apenas números inteiros!")
     lista_resultado = zera_negativo(lista)
     print(f"\nLista original: {lista}")
-    print(f"\nLista modificada: {lista_resultado}")  
+    print(f"\nLista modificada: {lista_resultado}")   
     
 if __name__=="__main__":
     main()
