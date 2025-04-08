@@ -46,8 +46,5 @@ def main():
             break
         else:
             print("Entrada inválida! a lista deve ser de números, tente novamente!")
-
-
-
 if __name__=="__main__":
     main()

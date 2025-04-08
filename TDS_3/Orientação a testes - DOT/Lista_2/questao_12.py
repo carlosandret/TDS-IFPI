@@ -20,18 +20,21 @@ def main():
                 gabarito = gera_respostas(30)                
                 respostas_alunos = []
                 acertos = []
+                # Faz um script para cada aluno da lista
                 for c in range(num_alunos):
                     aluno = gera_respostas(30)
                     aluno_acertos = 0
+                    # Compara cada resposta do aluno com o gabarito 
                     for i in range(len(aluno)):
                         if aluno[i] == gabarito[i]:
                             aluno_acertos += 1
                     respostas_alunos.append(aluno)
                     acertos.append(aluno_acertos)
+                    
                 print(f"\nGabarito da prova: {gabarito}\n\n{'='*10} RESULTADO DA PROVA! {'='*10}")                
                 n = 0
                 for i in range(len(respostas_alunos)):
-                    print(f"Nota do aluno {n+1}: {acertos[n]}")
+                    print(f"Número de acertos aluno {n+1}: {acertos[n]}")
                     n += 1
                 break
             else:

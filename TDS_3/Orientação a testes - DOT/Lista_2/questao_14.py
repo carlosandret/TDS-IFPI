@@ -19,7 +19,7 @@ def main():
             lista.append(valor)
         except:
             cont -= 1
-            print("\nERRO: Entrada inválida, digite apenas números inteiros!")
+            print("\nERRO: Entrada inválida, não podem haver valores vazios, devem ser números!")
     lista_resultado = zera_negativo(lista)
     print(f"\nLista original: {lista}")
     print(f"\nLista modificada: {lista_resultado}")   

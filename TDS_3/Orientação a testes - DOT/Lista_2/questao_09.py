@@ -10,9 +10,20 @@ def lista_inversa(lista):
     return lista_inversa   
 
 def main():
-        lista = [1, 2, 3, "banana", 'laranja']
-        lista_ordem_inversa = lista_inversa(lista)
-        print(f"\nlista: {lista}\n\nLista na ordem inversa: {lista_ordem_inversa}")        
+    lista = []
+    cont = 0
+    print("-----------Digite uma lista de 05 números.-----------")
+    while cont < 5:
+        try:
+            cont += 1
+            valor = float(input("--> "))
+            lista.append(valor)
+        except:
+            cont -= 1
+            print("\nERRO: Entrada inválida, não podem haver valores vazios e nem strings, devem ser números!") 
+
+    lista_ordem_inversa = lista_inversa(lista)
+    print(f"\nlista: {lista}\n\nLista na ordem inversa: {lista_ordem_inversa}")            
 if __name__=="__main__":
     main()
     
