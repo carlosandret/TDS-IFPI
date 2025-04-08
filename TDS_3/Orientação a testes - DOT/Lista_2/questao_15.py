@@ -24,7 +24,6 @@ def main():
                         
     lista_ordem_inversa = lista_inversa(lista)
     print(f"\nlista: {lista}\n\nLista na ordem inversa: {lista_ordem_inversa}")
-    
 if __name__=="__main__":
     main()
     
