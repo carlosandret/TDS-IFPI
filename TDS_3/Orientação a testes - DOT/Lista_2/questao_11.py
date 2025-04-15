@@ -7,6 +7,10 @@
 # 1)Cadastar nome
 # 2)Pesquisar nome
 # 3)Listar todos os nome
+# 4) Alterar nome
+#  ---> O usuario digita o nome que deseja alterar, mostra a posição do nome e pede o novo nome que ser´colocado
+# 5) Excluir nome
+#  ---> Perguntar  se o usuário tem certeza que deseja excluir, sem usar o método remove()
 # 0) Sair do programa
 # ——————–
 # Digite sua escolha:_

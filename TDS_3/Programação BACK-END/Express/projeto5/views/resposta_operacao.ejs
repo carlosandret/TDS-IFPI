@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de operações</h1>
+    <table>
+        <tr>
+            <th>DATA</th>   
+            <th>CÓDIGO</th>   
+            <th>TIPO</th>   
+            <th>QUANTIDADE</th>   
+            <th>PREÇO</th>   
+            <th>VALOR BRUTO</th>   
+            <th>VALOR LÍQUIDO</th>   
+        </tr>
+
+        <tr>
+            <td><%= data %></td>
+            <td><%= codigo %></td>
+            <td><%= tipo %></td>
+            <td><%= quantidade %></td>
+            <td><%= preco %></td>
+            <td><%= valorBruto %></td>
+            <td><%= valorLiquido %></td>
+        </tr>
+    </table>
+
+    <a href="/nova_operacao">Realizar outra operação</a>
+
+</body>
+</html>
