@@ -23,7 +23,7 @@
             <th>VALOR BRUTO</th>   
             <th>VALOR LÍQUIDO</th>   
         </tr>
-        <% for (let i = 0; i < lista_operacoes.length; i++) { %>
+        <% for (let i = 0; i < lista_operacoesg.lenth; i++) { %>
             <tr>
                 <td><%= lista_operacoes[i].data %></td>   
                 <td><%= lista_operacoes[i].codigo %></td>
@@ -34,7 +34,7 @@
                 <td><%= lista_operacoes[i].valorLiquido %></td>
             </tr>
         <% } %>
-    </table>
+    </table><br>
 
     <a href="/nova_operacao">Realizar outra operação</a>
 

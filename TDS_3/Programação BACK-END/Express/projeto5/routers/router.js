@@ -26,6 +26,7 @@ router.post('/nova_operacao', (req, res) => {
     } else {
         valorLiquido = valorBruto - ((valorBruto * 0.05) /100) 
     }    
+    
     lista_operacoes.push({
         data : data,
         codigo : codigo,
@@ -36,8 +37,7 @@ router.post('/nova_operacao', (req, res) => {
         valorLiquido : valorLiquido
     });
 
-    res.render('resposta_operacao', {lista_operacoes : lista_operacoes});
-    
+    res.render('resposta_operacao', {lista_operacoes : lista_operacoes});    
 })
 
 module.exports = router
