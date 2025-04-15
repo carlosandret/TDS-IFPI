@@ -10,29 +10,33 @@ router.get('/nova_operacao', (req, res) => {
 })
 
 router.post('/nova_operacao', (req, res) => {
-    data = req.body.data;
-    codigo = req.body.codigo;
-    tipo = req.body.tipo;
-    quantidade = Number(req.body.quantidade);
-    preco = Number(req.body.preco);
-    valorBruto = quantidade * preco;
-    valorLiquido = 0;
-    console.log(quantidade)
+    let data = req.body.data;
+    let codigo = req.body.codigo;
+    let tipo = req.body.tipo;
+    let quantidade = Number(req.body.quantidade);
+    let preco = Number(req.body.preco);
+    let valorBruto = quantidade * preco;
+    let valorLiquido;
+
+    let lista_operacoes = [];
+
+    // Trata a condição para o resultado do valor líquido
     if (tipo == 'compra') {
         valorLiquido = valorBruto + ((valorBruto * 0.05) /100) 
     } else {
         valorLiquido = valorBruto - ((valorBruto * 0.05) /100) 
-    }
-    
-    res.render('resposta_operacao', {
-        data: data,
-        codigo: codigo,
+    }    
+    lista_operacoes.push({
+        data : data,
+        codigo : codigo,
         tipo : tipo,
         quantidade : quantidade,
         preco : preco,
         valorBruto : valorBruto,
         valorLiquido : valorLiquido
-    })
+    });
+
+    res.render('resposta_operacao', {lista_operacoes : lista_operacoes});
     
 })
 
