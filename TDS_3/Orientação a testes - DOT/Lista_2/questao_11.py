@@ -101,8 +101,7 @@ def main():
                             elif opcao == 'n' or opcao == 'não':
                                 print("\nOK, o nome não será excluido!")
                             else:
-                                print("\nERRO: Escolha uma opção válida, S ou N.")
-                                
+                                print("\nERRO: Escolha uma opção válida, S ou N.")                                
                         else:
                             print(f"\nERRO: O nome {nome} NÃO está na lista. Tente outro nome!")
                     else:
