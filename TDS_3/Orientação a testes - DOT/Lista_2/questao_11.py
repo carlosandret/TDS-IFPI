@@ -39,6 +39,7 @@ def main():
 0) Sair do programa''')            
             try:
                 opcao = int(input("\nDigite sua escolha: "))
+                
                 #  1) Cadastrar nome
                 if opcao == 1:
                     nome = input("\nDigite o nome que deseja adicionar: ")
@@ -70,6 +71,7 @@ def main():
                         print("\nA lista está vazia")
                     else:
                         print(f"\nLISTA DE NOMES: {lista}")
+                        
                 # 4) Alterar nome       
                 elif opcao == 4:
                     nome = input("\nDigite o nome que deseja alterar: ")
@@ -106,6 +108,7 @@ def main():
                             print(f"\nERRO: O nome {nome} NÃO está na lista. Tente outro nome!")
                     else:
                         print("\nERRO: Digite um valor de nome válido!")
+                        
                 # 0) Encerrar o programa       
                 elif opcao == 0:
                     print("\nEncerrando programa...")                
