@@ -3,6 +3,10 @@ const express = require('express')
 // Importa a mini aplicação de roteamento do express.
 const router = express.Router()
 
+let livros = [];
+
+router.use(express.urlencoded({ extended: false }));
+
 router.get('/', (req, res) => {
     res.render('home')
 })
@@ -12,25 +16,26 @@ router.get('/livro_form', (req, res) => {
 })
 
 router.post('/livro', (req, res) => {
-    titulo = req.body.titulo
-    autor = req.body.autor
-    ano = Number(req.body.ano)
-    genero = req.body.genero
+    let titulo = req.body.titulo;
+    let autor = req.body.autor;
+    let ano = Number(req.body.ano);
+    let genero = req.body.genero;
 
-    livro = {
+    let livro = {
         titulo: titulo,
-        autor: autor,
+        autor: autor,   
         ano: ano,
         genero: genero 
     }
-    livros = []
-    livros.push(livro)
-    res.render('livro_resposta', {livros: livros})
+
+    livros.push(livro);
+
+    res.render('livro_resposta', {livros});
 })
 
 router.get('/livro_resposta', (req, res) => {
-    res.render('livro_resposta')
+    res.render('livro_resposta', {livros});
 })
 
 // Exporta o roteador para ser utilizado em outros arquivos.
-module.exports = router
+module.exports = router;
