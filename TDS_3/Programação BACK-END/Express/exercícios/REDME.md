@@ -37,7 +37,7 @@ Objetivo: Criar uma aplicação para registrar treinos realizados durante a sema
     
 <ul>
     <li>Dia da semana (select: "Segunda", "Terça", ..., "Domingo")</li>
-    <li>Tipo de exercício (texto)</li>
+    <li>Nome de exercício (texto)</li>
     <li>Duração em minutos (número inteiro)</li>
 </ul>
 
