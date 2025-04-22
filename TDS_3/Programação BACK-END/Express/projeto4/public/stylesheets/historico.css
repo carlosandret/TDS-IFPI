@@ -3,12 +3,17 @@ body {
     background-image: linear-gradient(to bottom, darkslategrey,  gray); 
     background-repeat: round; 
     /* width: 100vw; */
-    height: 100vh;
+    margin: 0;
+    height: 100%;
     /* color: darkslategrey; */
 }
 
+h1 {
+    text-align: center;
+}
+
 div{
-    padding: 50px;
+    padding: 20px;
     margin-top: 20px;
     margin-left: 20rem;
     margin-right: 20rem;
@@ -20,8 +25,8 @@ table > tr, td, th{
     border:  1px solid black;
     text-align: center;
     padding: 5px;
-    text-align: center;
 }
+
 
 table{
     display: flex;

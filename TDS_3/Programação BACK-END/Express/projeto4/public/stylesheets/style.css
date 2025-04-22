@@ -13,6 +13,8 @@ h1 {
 
 div{
     padding: 50px;
+    padding-top: 2
+    0px;
     margin-top: 20px;
     margin-left: 20rem;
     margin-right: 20rem;
@@ -41,14 +43,13 @@ label {
     font-weight: bold;
 }
 
-tbody > tr:nth-child(2n) {
+/* tbody > tr:nth-child(2n) {
     background-color: lightgray;
-}
+} */
 
 .navegacao {
     display: flex;
     /* justify-content: space-between; */
     justify-content: center;
-    
     gap: 9rem;
 }
