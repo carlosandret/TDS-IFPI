@@ -11,25 +11,29 @@ def gera_lista(qtd_num, max_valor):
         lista.append(x)
     return lista
 
+def calc_diferenca(a, b):
+    if a >= b: 
+        return a - b
+    else: 
+        return b-a
+
 def num_proximo_media(lista):
     media = sum(lista) / len(lista)
     valor_mais_proximo = 0
-    menor_diferenca = 0
+    menor_diferenca = calc_diferenca(media, lista[0])
     for i in lista:
-        diferenca = media - i
+        diferenca = calc_diferenca(i, media)
         if diferenca < menor_diferenca:
             menor_diferenca = diferenca
             valor_mais_proximo = i
             
     return valor_mais_proximo
     
-    
-    
 def main():
     while True:
         try:            
             # lista_original = gera_lista(5, 20)
-            lista_original = [1,2,3,4,5]
+            lista_original = [10,2.5, 7.5, 4.0]
 
             print(f"\nLista: {lista_original}")
             print(f"\nO valor mais próximo da média é: {num_proximo_media(lista_original)}")
