@@ -3,7 +3,10 @@
 # Fórmula: C = ((F-32)/9)*5
 
 def celsius(temp):
-    return ((temp-32) / 9)*5
+    if type(temp) != float and type(temp) != int:
+        return Exception
+    else:
+        return ((temp-32) / 9)*5
 
 def main():
     while True:
@@ -13,5 +16,19 @@ def main():
             break
         except:
             print("\nERRO: Temperatura inválida, tente novamente!")
-if __name__ == "__main__":
-    main()
+
+def testes():
+    assert celsius(50) == 10.0
+    assert celsius(50.5) == 10.277777777777777
+    assert celsius("a") == Exception
+    assert celsius("") == Exception
+    assert celsius(" ") == Exception
+    print("Todos os testes passaram!")
+
+teste_mode = True
+
+if __name__=="__main__":
+    if teste_mode:
+        testes()
+    else:
+        main()
