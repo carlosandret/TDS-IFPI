@@ -3,10 +3,18 @@
 # Área = PI * r2; Perímetro = PI * 2 * r;
 
 def area(raio):
-    return 3.14 * raio **2
-
+    if type(raio) != float and type(raio) != int:
+        return Exception
+    
+    elif raio > 0:
+        return (3.14 * (raio **2))
+    
 def perimetro(raio):
-    return 3.14 * 2 * raio
+    if type(raio) != float and type(raio) != int:
+        return Exception
+    
+    if raio > 0:
+        return 3.14 * 2 * raio
     
 def main():
     while True:
@@ -17,5 +25,26 @@ def main():
             break
         except:
             print("\nERRO: Digite um valor válido!")
-if __name__ == "__main__":
-    main()
+
+def teste():
+    assert area(3.5) == 38.465
+    assert area(5) == 78.5
+    assert area("a") == Exception
+    assert area("") == Exception
+    assert area(" ") == Exception
+    
+    assert perimetro(3) == 18.84
+    assert perimetro(5.4) == 33.912000000000006
+    assert area("a") == Exception
+    assert area("") == Exception
+    assert area(" ") == Exception
+
+    print("Todos os testes passaram!")
+
+teste_mode = True
+
+if __name__=="__main__":
+    if teste_mode:
+        teste()
+    else:
+        main()
