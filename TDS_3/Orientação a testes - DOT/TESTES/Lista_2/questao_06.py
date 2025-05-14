@@ -13,14 +13,12 @@ def gera_lista(qtd_num):
             lista.append(x)
     return lista
 
-# Função que recebe uma lista de quantidade e outra de preço e gera outra lista com o faturamento de cada produto
 def calcula_faturamento(lista_qtd, lista_valores):
     faturamentos = []
     for i in range(len(lista_qtd)):
-        faturamentos.append(lista_qtd[i]*lista_valores[i])
+        faturamentos.append(lista_qtd[i] * lista_valores[i])
     return faturamentos
 
-# Função que recebe uma lista e um valor de média e retorna quantos valores da lista são menores do que a média 
 def qtd_abaixo_da_media(lista, media):
     resultado = []
     for i in lista:
@@ -28,23 +26,43 @@ def qtd_abaixo_da_media(lista, media):
             resultado.append(i)
     return len(resultado)
 
-# Função que calcula a media dos elementos de uma lista
 def media_lista(lista):
-    return sum(lista)/len(lista)
+    return sum(lista) / len(lista)
 
 def main():
-    while True:
-        quantidade_p = gera_lista(20)
-        preco_p = [7, 5, 10.5, 8.7, 6.4, 9.34, 6.45, 9.6, 4.8, 3.5, 10, 6, 10.5, 8.7, 6.4, 5.8, 9.34, 6.45, 5.6, 4.8]
-        if type(quantidade_p) != str and type(preco_p) != str:
-            lista_faturamentos = calcula_faturamento(quantidade_p, preco_p)        
-            media_faturamento = media_lista(lista_faturamentos)
-            print(f'''\nFaturamento de cada produto em reais: {lista_faturamentos}
-        \nFaturamento total: R$ {sum(lista_faturamentos):.2f}
-        \nMédia dos faturamentos: R$ {media_faturamento:.2f}
-        \nQuantidade de faturamentos abaixo da média: {qtd_abaixo_da_media(lista_faturamentos, media_faturamento)}''')
-            break
-        else:
-            print("Entrada inválida! a lista deve ser de números, tente novamente!")
-if __name__=="__main__":
+    # ACERTOS
+    qtd = [1, 2, 3]
+    preco = [10.0, 20.0, 30.0]
+    fat = calcula_faturamento(qtd, preco)
+    assert fat == [10.0, 40.0, 90.0]
+
+    media = media_lista(fat)
+    assert media == 46.666666666666664
+
+    abaixo = qtd_abaixo_da_media(fat, media)
+    assert abaixo == 2  # 10.0 e 40.0 estão abaixo da média
+
+    # ACERTOS com valores iguais
+    qtd2 = [2, 2, 2]
+    preco2 = [5.0, 5.0, 5.0]
+    fat2 = calcula_faturamento(qtd2, preco2)
+    assert fat2 == [10.0, 10.0, 10.0]
+    assert media_lista(fat2) == 10.0
+    assert qtd_abaixo_da_media(fat2, 10.0) == 0
+
+    # ACERTOS com inteiros
+    qtd3 = [1, 2, 3]
+    preco3 = [1, 2, 3]
+    assert calcula_faturamento(qtd3, preco3) == [1, 4, 9]
+    assert media_lista([1, 4, 9]) == 14 / 3
+    assert qtd_abaixo_da_media([1, 4, 9], 14 / 3) == 2
+
+    # ERROS
+    assert calcula_faturamento([1, 2], [3, 4]) != [1, 2, 3, 4]
+    assert media_lista([10, 20, 30]) != 50
+    assert qtd_abaixo_da_media([5, 6, 7], 6) != 3  # apenas dois estão abaixo da média
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

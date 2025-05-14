@@ -15,108 +15,83 @@
 # ——————–
 # Digite sua escolha:_
 
-# Função que remove o item de uma lista, recebe a lista e o indice do item e retorna a lista com o item removido
+# Função que remove o item de uma lista, recebe a lista e o índice do item e retorna a lista com o item removido
 def remove_item(lista, indice_item):
-    lista_nova = []
-    
+    if not isinstance(lista, list) or not isinstance(indice_item, int):
+        return Exception
+    if indice_item < 0 or indice_item >= len(lista):
+        return Exception
+
     lista[indice_item] = ''
+    lista_nova = []
     for i in lista:
         if i != '':
-            lista_nova.append(i) 
+            lista_nova.append(i)
     return lista_nova
 
-def main():    
-    num_posicoes = int(input("\nDigite a quantidade de posições da lista de nomes: "))
-    if num_posicoes > 0: 
-        lista = []
-        while True:
-            print(f'''\n{'='*10} MENU {'='*10}
-1) Cadastrar nome
-2) Pesquisar nome
-3) Listar todos os nomes
-4) Alterar nome
-5) Excluir nome
-0) Sair do programa''')            
-            try:
-                opcao = int(input("\nDigite sua escolha: "))
-                
-                #  1) Cadastrar nome
-                if opcao == 1:
-                    nome = input("\nDigite o nome que deseja adicionar: ")
-                    # Confere se o valor digitado é composto por letras, tratando caracteres e espaços vasios
-                    if nome.isalpha():
-                        if len(lista) >= num_posicoes:
-                            print("\nERRO: A lista já alcançou a quantidade máxima!")
-                        else:
-                            lista.append(nome)  
-                            print(f"\nO nome {nome} foi adicionado com sucesso!")  
-                    else:
-                        print("\nERRO: Digite um valor de nome válido!")
-                        
-                # 2) Pesquisar nome          
-                elif opcao == 2:
-                    nome = input("\nDigite o nome que deseja pesquisar: ")
-                    # Confere se o valor digitado é composto por letras, tratando caracteres e espaços vasios
-                    if nome.isalpha():                        
-                        if nome in lista:
-                            print(f"\nO nome {nome} ESTÁ na lista, na posição {lista.index(nome)+1}.")
-                        else:
-                            print(f"\nERRO: O nome {nome} NÃO está na lista.")
-                    else:
-                        print("\nERRO: Digite um valor de nome válido!")
-                
-                # 3) Mostrar todos os nomes da lista 
-                elif opcao == 3:
-                    if len(lista) == 0:
-                        print("\nA lista está vazia")
-                    else:
-                        print(f"\nLISTA DE NOMES: {lista}")
-                        
-                # 4) Alterar nome       
-                elif opcao == 4:
-                    nome = input("\nDigite o nome que deseja alterar: ")
-                    # Confere se o valor digitado é composto por letras, tratando caracteres e espaços vasios
-                    if nome.isalpha():                        
-                        if nome in lista:
-                            print(f"\nO nome {nome} ESTÁ na posição {lista.index(nome)+1}.")
-                            novo_nome = input("\nDigite o novo nome: ")
-                            lista[lista.index(nome)] = novo_nome
-                            print(f"\nO nome {novo_nome} foi adicionado com sucesso!") 
-                        else:
-                            print(f"\nERRO: O nome {nome} NÃO está na lista. Tente outro nome!")
-                    else:
-                        print("\nERRO: Digite um valor de nome válido!")
-                
-                # 5) Excluir nome        
-                elif opcao == 5:
-                    nome = input("\nDigite o nome que deseja excluir: ")
-                    # Confere se o valor digitado é composto por letras, tratando caracteres e espaços vasios
-                    if nome.isalpha():
-                        if nome in lista:
-                            indice_nome = lista.index(nome)
-                            print(f"\nO nome {nome} ESTÁ na posição {indice_nome+1}.")
-                            opcao = input(f"\nTem certeza que deseja excluir o nome? (S - sim ou N - não) ").lower()
-                            if opcao == 's' or opcao == 'sim':         
-                                # Chamamento da função que remove o item da lista               
-                                lista = remove_item(lista, indice_nome)
-                                print(f"\n O nome {nome} foi excluido com sucesso!")
-                            elif opcao == 'n' or opcao == 'não':
-                                print("\nOK, o nome não será excluido!")
-                            else:
-                                print("\nERRO: Escolha uma opção válida, S ou N.")                                
-                        else:
-                            print(f"\nERRO: O nome {nome} NÃO está na lista. Tente outro nome!")
-                    else:
-                        print("\nERRO: Digite um valor de nome válido!")
-                        
-                # 0) Encerrar o programa       
-                elif opcao == 0:
-                    print("\nEncerrando programa...")                
-                    break
-            except:
-                print("\nERRO: Digite uma opção válida!")    
-    else:
-        print("\nERRO: A quantidade de posições deve ser um número maior que zero!")            
-        main()
-if __name__=="__main__":
+# Função que altera um nome existente na lista por um novo
+def alterar_nome(lista, nome_antigo, nome_novo):
+    if not isinstance(lista, list) or not isinstance(nome_antigo, str) or not isinstance(nome_novo, str):
+        return Exception
+    if nome_antigo not in lista:
+        return Exception
+    indice = lista.index(nome_antigo)
+    lista[indice] = nome_novo
+    return lista
+
+# Função que pesquisa um nome e retorna sua posição (1-indexed)
+def pesquisar_nome(lista, nome):
+    if not isinstance(lista, list) or not isinstance(nome, str):
+        return Exception
+    if nome not in lista:
+        return Exception
+    return lista.index(nome) + 1
+
+# Função que adiciona um nome se houver espaço na lista (tamanho limitado)
+def cadastrar_nome(lista, nome, limite):
+    if not isinstance(lista, list) or not isinstance(nome, str) or not isinstance(limite, int):
+        return Exception
+    if len(lista) >= limite:
+        return Exception
+    lista.append(nome)
+    return lista
+
+def main():
+    lista = []
+    limite = 5
+
+    # Teste cadastro válido
+    assert cadastrar_nome(lista, "Ana", limite) == ["Ana"]
+    assert cadastrar_nome(lista, "Bia", limite) == ["Ana", "Bia"]
+    assert cadastrar_nome(lista, "Caio", limite) == ["Ana", "Bia", "Caio"]
+
+    # Teste pesquisa
+    assert pesquisar_nome(lista, "Bia") == 2
+    assert pesquisar_nome(lista, "Caio") == 3
+
+    # Teste alteração
+    assert alterar_nome(lista, "Bia", "Beatriz") == ["Ana", "Beatriz", "Caio"]
+
+    # Teste exclusão
+    assert remove_item(lista, 1) == ["Ana", "Caio"]
+
+    # Testes de exceções
+    assert cadastrar_nome("não é lista", "João", 3) == Exception
+    assert cadastrar_nome(lista, "Daniel", "limite errado") == Exception
+    assert cadastrar_nome(lista, "Pedro", 2) == Exception  # limite já foi ultrapassado
+
+    assert pesquisar_nome(lista, 123) == Exception
+    assert pesquisar_nome("texto", "Ana") == Exception
+    assert pesquisar_nome(lista, "Inexistente") == Exception
+
+    assert alterar_nome(lista, "NomeFalso", "Novo") == Exception
+    assert alterar_nome("erro", "Ana", "Nova") == Exception
+
+    assert remove_item("não é lista", 0) == Exception
+    assert remove_item(lista, 100) == Exception
+    assert remove_item(lista, -1) == Exception
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

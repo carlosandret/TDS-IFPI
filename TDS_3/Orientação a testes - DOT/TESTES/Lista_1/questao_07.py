@@ -4,23 +4,33 @@
 # número, também do tipo inteiro.
 
 def fatorial(num):
-    if 
-    valor = 1
-    for i in range(num, 0, -1):
-        valor *= i
+    if not isinstance(num, int):
+        return Exception
+    if num <= 0:
+        return Exception
+    else:
+        valor = 1
+        for i in range(num, 0, -1):
+            valor *= i
     return valor
 
 def main():
-    while True:
-        try:
-            numero = int(input("\nDigite um número: "))
-            if numero <= 0:
-                print("\nERRO: O valor deve ser maior que 0!")
-                main() # Para retornar ao início em caso de erro
-            else:
-                print(f"\nO fatorial de {numero} é: {fatorial(numero)}")
-            break
-        except:
-            print("\nERRO: Entrada inválida, digite somente números inteiros!")            
-if __name__=="__main__":
+    # ACERTOS
+    assert fatorial(1) == 1
+    assert fatorial(2) == 2
+    assert fatorial(3) == 6
+    assert fatorial(5) == 120
+    assert fatorial(7) == 5040
+
+    # ERROS
+    assert fatorial(0) == Exception
+    assert fatorial(-4) == Exception
+    assert fatorial("abc") == Exception
+    assert fatorial("") == Exception
+    assert fatorial(None) == Exception
+    assert fatorial(3.5) == Exception
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

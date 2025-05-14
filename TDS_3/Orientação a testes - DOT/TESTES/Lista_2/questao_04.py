@@ -19,28 +19,28 @@ def posicao_maximo(lista):
     for i in lista:
         if i > maior:
             maior = i
-    return lista.index(maior)+1, maior 
+    return lista.index(maior) + 1, maior
 
-# Função para encontrar o menor item de uma lista, retorna a posição e o valor do menor item    
+# Função para encontrar o menor item de uma lista, retorna a posição e o valor do menor item
 def posicao_minimo(lista):
     menor = lista[0]
     for i in lista:
         if i < menor:
             menor = i
-    return lista.index(menor)+1, menor 
-    
+    return lista.index(menor) + 1, menor
+
 def main():
-    while True:
-        numeros = gera_lista(15)
-        if type(numeros) != str:
-            posicao_maior, maior = posicao_maximo(numeros)
-            posicao_menor, menor = posicao_minimo(numeros)
-            
-            print(f'''\nLista: {numeros}
-        \nO maior elemento é: {maior}, está na posição {posicao_maior}.
-        \nO menor elemento é: {menor}, está na posição {posicao_menor}.''')
-            break
-        else:
-            print("Entrada inválida! a lista deve ser de números, tente novamente!")
-if __name__=="__main__":
+    # ACERTOS
+    assert posicao_maximo([10, 20, 30, 40, 50]) == (5, 50)
+    assert posicao_maximo([3, 1, 9, 2]) == (3, 9)
+    assert posicao_minimo([10, 20, 30, 40, 5]) == (5, 5)
+    assert posicao_minimo([7, 2, 9, 1]) == (4, 1)
+
+    # ERROS
+    assert posicao_maximo([1, 2, 3, 4]) != (1, 4)
+    assert posicao_minimo([4, 5, 6, 7]) != (2, 4)
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

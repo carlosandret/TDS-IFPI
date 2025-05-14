@@ -2,31 +2,40 @@
 # ocorreu a letra ‘A’.
 # OBS: Fazer crítica na entrada do caractere para aceitar somente letras.
 
-#Função que confere quantas vezes a letra foi repetida na lista
+# Função que confere quantas vezes a letra foi repetida na lista
 def confere_repeticao(lista, letra):
+    if not isinstance(lista, list):
+        return Exception
+    if not isinstance(letra, str) or len(letra) != 1 or not letra.isalpha():
+        return Exception
+    if not all(isinstance(i, str) and len(i) == 1 and i.isalpha() for i in lista):
+        return Exception
+
     cont = 0
     for i in lista:
-        if letra == i:
+        if letra.upper() == i.upper():
             cont += 1
     return cont
 
 def main():
-    while True:
-        l_alfabeto = ['A','A',"A","A","E","Y","T","I","U","O","G","G","G","G","G","D","D"]
-        letra = input("\nDigite uma letra do alfabeto: ").upper()
-                
-        # Método inbutido do python que confere se o valor é uma letra
-        if letra.isalpha():
-            num_repeticao = confere_repeticao(l_alfabeto, letra)
-            print(f"\n{'='*10} Lista: {l_alfabeto} {'='*10}")
-            if num_repeticao == 0:
-                print(f"\nA letra '{letra}' não está na lista")
-            elif num_repeticao == 1:
-                print(f"\nA letra '{letra}' se repete {num_repeticao} vez na lista")
-            else:
-                print(f"\nA letra '{letra}' se repete {num_repeticao} vezes na lista")
-            break
-        else:
-            print("\nERRO: Digite apenas letras, tente novamente!")
-if __name__=="__main__":
+    # Lista correta com letras
+    lista = ['A', 'A', 'a', 'B', 'C', 'D', 'E', 'A', 'F', 'G', 'H', 'I', 'J']
+
+    # Testes válidos
+    assert confere_repeticao(lista, 'A') == 4
+    assert confere_repeticao(lista, 'B') == 1
+    assert confere_repeticao(lista, 'Z') == 0
+    assert confere_repeticao(lista, 'a') == 4  # Teste com letra minúscula
+
+    # Testes de erro
+    assert confere_repeticao("não é lista", 'A') == Exception
+    assert confere_repeticao(lista, 5) == Exception
+    assert confere_repeticao(lista, 'AA') == Exception
+    assert confere_repeticao(lista, '') == Exception
+    assert confere_repeticao([1, 2, 3], 'A') == Exception
+    assert confere_repeticao(['A', 1, 'B'], 'A') == Exception
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

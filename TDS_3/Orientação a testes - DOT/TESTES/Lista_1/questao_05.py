@@ -23,6 +23,7 @@ def main():
     assert peso_ideal("", "") == Exception
     assert peso_ideal(" ", " ") == Exception
     assert peso_ideal(1.70, 2.5) == Exception
+    
     print("Todos os testes passaram!")
     
     

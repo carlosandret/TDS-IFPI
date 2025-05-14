@@ -13,21 +13,23 @@ def gera_lista(qtd_num):
 
 #Função que recebe uma lista e retorna a mesma na ordem inversa
 def lista_inversa(lista):
-    lista_inversa = []
-    # Loop que percorre a lista e adiciona os valores na ordem inversa em outra lista
-    for i in range(len(lista)-1, -1, -1):
-        lista_inversa.append(lista[i])    
-    return lista_inversa   
+    lista_invertida = []
+    for i in range(len(lista) - 1, -1, -1):
+        lista_invertida.append(lista[i])
+    return lista_invertida
 
 def main():
-    while True:
-        lista_numeros = gera_lista(10)
-        if type(lista_numeros) != str:
-            lista_ordem_inversa = lista_inversa(lista_numeros)
-            print(f"lista: {lista_numeros}\n\nLista na ordem inversa: {lista_ordem_inversa}")
-            break
-        else:
-            print("Entrada inválida! a lista deve ser de números, tente novamente!")
-if __name__=="__main__":
+    # ACERTOS
+    assert lista_inversa([1, 2, 3, 4, 5]) == [5, 4, 3, 2, 1]
+    assert lista_inversa([10, 20, 30]) == [30, 20, 10]
+    assert lista_inversa([7]) == [7]
+    assert lista_inversa([]) == []
+
+    # ERROS
+    assert lista_inversa([1, 2, 3]) != [1, 2, 3]
+    assert lista_inversa([5, 6, 7]) != [6, 5, 7]
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()
-    

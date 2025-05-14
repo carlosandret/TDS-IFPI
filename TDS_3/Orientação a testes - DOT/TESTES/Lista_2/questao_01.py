@@ -3,52 +3,56 @@
 # b) Grave uma lista somente com os números pares e mostre a lista;
 # c) Mostre a quantidade de números ímpares;
 # d) Grave uma lista somente com os números ímpares e mostre a lista.
+
 from random import randint
 
-# Função que gera uma lista aleatória com uma quantidade especificada de números, com intervalo de 1 a 100
+# Gera uma lista de 'qtd_num' números inteiros únicos entre 1 e 100
 def gera_lista(qtd_num):
+    if qtd_num > 100:
+        return Exception  # Só existem 100 inteiros únicos de 1 a 100
+    
     lista = []
-    for i in range(qtd_num):
-        x = randint(1, 100)
-        if x not in lista:
-            lista.append(x)
+    while len(lista) < qtd_num:
+        num = randint(1, 100)
+        if num not in lista:
+            lista.append(num)
     return lista
 
-# Funções para determinar se é par
+# Verifica se é par
 def eh_par(n):
     return n % 2 == 0
 
-# Função que pega uma lista de números e retorna na sequencia uma lista dos números pares, lista dos números impares, quantidade de números pares e quantidade de números ímpares
+# Separa pares, ímpares e conta quantidades
 def qtd_pares_impares(lista_numeros):
-    # Listas que guardam os números separados
     num_pares = []
     num_impares = []
-    # Contadores de números pares e ímpares
-    qtd_par = 0
-    qtd_impar = 0
     
     for i in lista_numeros:
         if eh_par(i):
             num_pares.append(i)
-            qtd_par += 1
         else:
             num_impares.append(i)
-            qtd_impar += 1
+    
+    qtd_par = len(num_pares)
+    qtd_impar = len(num_impares)
     return num_pares, num_impares, qtd_par, qtd_impar
 
 def main():
-    while True:
-        numeros = gera_lista(100)
-        if type(numeros) != str: 
-            numeros_pares, numeros_impares, qtd_pares, qtd_impares = qtd_pares_impares(numeros)
-        
-            print(f'''{'='*20} lista: {numeros} {'='*20}
-                \nA lista possui {qtd_pares} números pares!
-            \nNúmeros pares: {numeros_pares}
-                \nA lista possui {qtd_impares} números ímpares!
-            \nNúmeros ímpares: {numeros_impares}''')
-            break
-        else:
-            print("Entrada inválida! a lista deve ser de números, tente novamente!")
-if __name__=="__main__":
+    # ACERTOS
+    lista_teste = [2, 4, 6, 1, 3, 5]
+    num_pares, num_impares, qtd_pares, qtd_impares = qtd_pares_impares(lista_teste)
+    assert qtd_pares == 3
+    assert qtd_impares == 3
+    assert num_pares == [2, 4, 6]
+    assert num_impares == [1, 3, 5]
+
+    lista = gera_lista(100)
+    assert len(lista) == 100
+    assert len(lista) == len(set(lista))  # Todos os números devem ser únicos
+    
+    # ERROS
+    assert gera_lista(101) == Exception
+
+    print("Todos os testes passaram!")
+if __name__ == "__main__":
     main()

@@ -14,6 +14,7 @@ def main():
     assert media("a", 'B') == Exception
     assert media("", "") == Exception
     assert media(" ", " ") == Exception
+    
     print("Todos os testes passaram!")
     
 if __name__=="__main__":

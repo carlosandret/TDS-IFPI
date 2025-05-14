@@ -21,17 +21,28 @@ def intercala_lista(lista_1, lista_2):
     return nova_lista
 
 def main():
-    while True:
-        lista_1 = gera_lista(10)
-        lista_2 = gera_lista(10)
-        if type(lista_1) and type(lista_2) != str: 
-            lista_conjugada = intercala_lista(lista_1, lista_2)
-    
-            print(f'''\nLista 1: {lista_1}
-            \nlista 2: {lista_2}
-            \nLista conjugada: {lista_conjugada}''')
-            break
-        else:
-            print("Entrada inválida! a lista deve ser de números, tente novamente!")
-if __name__=="__main__":
+    # ACERTOS – com números
+    assert intercala_lista([1, 2, 3], [4, 5, 6]) == [1, 4, 2, 5, 3, 6]
+    assert intercala_lista([10, 20], [30, 40]) == [10, 30, 20, 40]
+    assert intercala_lista([], []) == []
+    assert intercala_lista([7], [8]) == [7, 8]
+
+    # ACERTOS – com strings
+    assert intercala_lista(["a", "b"], ["x", "y"]) == ["a", "x", "b", "y"]
+    assert intercala_lista(["dog", "cat"], ["bone", "fish"]) == ["dog", "bone", "cat", "fish"]
+    assert intercala_lista([""], [""]) == ["", ""]
+
+    # ERROS – com números
+    assert intercala_lista([1, 2], [3, 4]) != [1, 2, 3, 4]
+    assert intercala_lista([5, 6], [7, 8]) != [5, 6, 7, 8]
+
+    # ERROS – com strings
+    assert intercala_lista(["a", "b"], ["x", "y"]) != ["a", "b", "x", "y"]
+    assert intercala_lista(["one", "two"], ["three", "four"]) != ["one", "two", "three", "four"]
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()
+
+

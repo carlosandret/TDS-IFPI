@@ -5,8 +5,9 @@ def qtd_negativos(lista):
     qtd = 0
     for i in lista:
         if i < 0:
-            qtd +=1
+            qtd += 1
     return qtd
+
 def soma_positivos(lista):
     soma = 0
     for i in lista:
@@ -15,22 +16,19 @@ def soma_positivos(lista):
     return soma
 
 def main():
-    while True:
-        try:
-            lista_numeros = []
-            print(f"{'='*20} Digite 10 números reais {'='*20}")
-            for i in range(10):        
-                num = float(input("--> "))
-                lista_numeros.append(num)
+    # ACERTOS
+    assert qtd_negativos([1.0, -2.5, 3.2, -4.1, 5.7]) == 2
+    assert qtd_negativos([0.0, -1.1, -3.3, 4.4, 5.5]) == 2
+    assert qtd_negativos([1, 2, 3, 4, 5]) == 0
+    assert soma_positivos([1.0, -2.5, 3.2, -4.1, 5.7]) == 9.9
+    assert soma_positivos([-1.0, -2.0, -3.0]) == 0
+    assert soma_positivos([0.0, 1.5, 2.5]) == 4.0
 
-            qtd_num_negativos = qtd_negativos(lista_numeros)
-            soma_num_positivos = soma_positivos(lista_numeros)
+    # ERROS
+    assert qtd_negativos([]) == 0
+    assert soma_positivos([]) == 0
 
-            print(f"\nLista: {lista_numeros}\nQuantidade de números negativos: {qtd_num_negativos}\nSoma dos números positivos: {soma_num_positivos}")
-            break
-        except:
-            print("Entrada inválida! Digite apenas números reais, tente novamente.")
-if __name__=="__main__":
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()
-
-
