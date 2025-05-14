@@ -5,42 +5,48 @@
 
 # Função que gera uma lista aleatória de respostas de "A" a "E", com tamanho determinado ao chamar a função, retornando ao final a lista criada
 import random
+
+# Função que gera uma lista aleatória de respostas de "A" a "E"
 def gera_respostas(num_questoes):
-    alternativas = ["A","B","C","D","E"]
-    lista = []
-    for i in range(num_questoes):
-        lista.append(random.choice(alternativas))
+    if not isinstance(num_questoes, int) or num_questoes <= 0:
+        return Exception
+
+    alternativas = ["A", "B", "C", "D", "E"]
+    lista = [random.choice(alternativas) for _ in range(num_questoes)]
     return lista
-    
+
+# Função que calcula os acertos de um aluno comparando com o gabarito
+def corrige_prova(gabarito, respostas):
+    if not isinstance(gabarito, list) or not isinstance(respostas, list):
+        return Exception
+    if len(gabarito) != len(respostas):
+        return Exception
+    if not all(isinstance(r, str) and r in "ABCDE" for r in respostas + gabarito):
+        return Exception
+
+    return sum(1 for i in range(len(gabarito)) if respostas[i] == gabarito[i])
+
 def main():
-    while True:
-        try:
-            num_alunos = int(input("\nDigite o número de alunos da turma: "))            
-            if num_alunos > 0:
-                gabarito = gera_respostas(30)                
-                respostas_alunos = []
-                acertos = []
-                # Faz um script para cada aluno da lista
-                for c in range(num_alunos):
-                    aluno = gera_respostas(30)
-                    aluno_acertos = 0
-                    # Compara cada resposta do aluno com o gabarito 
-                    for i in range(len(aluno)):
-                        if aluno[i] == gabarito[i]:
-                            aluno_acertos += 1
-                    respostas_alunos.append(aluno)
-                    acertos.append(aluno_acertos)
-                    
-                print(f"\nGabarito da prova: {gabarito}\n\n{'='*10} RESULTADO DA PROVA! {'='*10}")                
-                n = 0
-                for i in range(len(respostas_alunos)):
-                    print(f"Número de acertos aluno {n+1}: {acertos[n]}")
-                    n += 1
-                break
-            else:
-                print("\nERRO: O número de alunos não pode ser menor ou igual a zero. Tente novamente!")
-        except:
-            print("\nERRO: Entrada inválida, digite apenas números. Tente novamente!")    
-if __name__=="__main__":
+    gabarito = ["A", "B", "C", "D", "E"] * 6  # 30 questões
+    aluno1 = ["A", "B", "C", "D", "E"] * 6          # 30 acertos
+    aluno2 = ["E", "D", "C", "B", "A"] * 6          # 6 acertos
+
+    # Testes válidos
+    assert gera_respostas(5).__len__() == 5
+    assert corrige_prova(gabarito, aluno1) == 30
+    assert corrige_prova(gabarito, aluno2) == 6
+
+    # Testes inválidos para gera_respostas
+    assert gera_respostas("dez") == Exception
+    assert gera_respostas(-5) == Exception
+
+    # Testes inválidos para corrige_prova
+    assert corrige_prova("A", aluno1) == Exception
+    assert corrige_prova(gabarito, "B") == Exception
+    assert corrige_prova(gabarito, ["A", "B", "C"]) == Exception  # tamanho diferente
+    assert corrige_prova(gabarito, ["A"] * 29 + [9]) == Exception  # item não string
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()
-    

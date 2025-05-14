@@ -1,37 +1,29 @@
 # 19) Ler duas listas: R de 5 elementos e S de 10 elementos. Gerar uma lista X de 15 elementos cujas 5 primeiras posições contenham os elementos de R e as 10 últimas posições, os elementos de S. Escrever a lista X.
 
+# Função que junta duas listas em uma terceira (R com 5 elementos e S com 10)
+def concatena_listas(r, s):
+    if type(r) != list or type(s) != list:
+        return Exception
+    if len(r) != 5 or len(s) != 10:
+        return Exception
+    return r + s
+
 def main():
-    lista_r = []
-    lista_s = []
-    # Faz a leitura dos valores da lista (R) de 05 elementos
-    cont_1 = 0
-    print("-----------Digite uma lista de 5 elementos.-----------")
-    while cont_1 < 5:
-        cont_1 += 1
-        valor = input("--> ").strip()
-        # Confere se o valor é vazio
-        if not valor:
-            cont_1 -= 1
-            print("\nERRO: Entrada inválida, não podem haver valores vazios!")  
-        else:
-            lista_r.append(valor)
-    
-    # Faz a leitura dos valores da lista (S) de 10 elementos
-    cont_2 = 0
-    print("\n-----------Digite uma lista de 10 elementos.-----------")
-    while cont_2 < 10:
-        cont_2 += 1
-        valor = input("--> ").strip()
-        # Confere se o valor é vazio
-        if not valor:
-            cont_2 -= 1
-            print("\nERRO: Entrada inválida, não podem haver valores vazios!")  
-        else:
-            lista_s.append(valor)
-            
-    lista_x = lista_r + lista_s
-    print(f"\nLista 'R': {lista_r}") 
-    print(f"\nLista 'S': {lista_s}") 
-    print(f"\nLista combinada (X): {lista_x}")             
-if __name__=="__main__":
+    # Testes válidos
+    assert concatena_listas([1, 2, 3, 4, 5], [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]) == \
+           [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+    assert concatena_listas(['a', 'b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']) == \
+           ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']
+
+    # Testes inválidos
+    assert concatena_listas("não é lista", [1]*10) == Exception
+    assert concatena_listas([1]*5, "também não é lista") == Exception
+    assert concatena_listas([1, 2], [3]*10) == Exception  # Lista R com tamanho incorreto
+    assert concatena_listas([1]*5, [2]*5) == Exception    # Lista S com tamanho incorreto
+    assert concatena_listas(None, None) == Exception
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

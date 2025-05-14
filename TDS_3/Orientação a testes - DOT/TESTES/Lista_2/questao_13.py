@@ -1,31 +1,38 @@
-# 13) Tentando descobrir se um dado era viciado, um dono de cassino honesto (ha! ha! ha! ha!) o lançou n vezes. Dados os n resultados dos lançamentos, determinar o número de ocorrências de cada face. 
+# 13) Tentando descobrir se um dado era viciado, um dono de cassino honesto (ha! ha! ha! ha!) o lançou n vezes. Dados os n resultados dos lançamentos, determinar o número de ocorrências de cada face. fazer uma função para gerar os números do dados de forma aleatória
 
-# faer uma função para gerar os números do dados de forma aleatória
 from random import randint
 
+# Função que simula n lançamentos de um dado e conta quantas vezes cada face apareceu
+def lancar_dado(n):
+    if type(n) != int or n <= 0:
+        return Exception
+
+    faces = [0] * 6
+    for _ in range(n):
+        face = randint(1, 6)
+        faces[face - 1] += 1
+    return faces
+
 def main():
-    while True:
-        try:
-            numero_lancamentos = int(input("\nDigite quantas vezes desejar lançar o dado: "))
-            # Tratar valor <= 0
-            if numero_lancamentos > 0:
-                faces = [0,0,0,0,0,0]
-                instancias = []
-                for i in range(numero_lancamentos):
-                    face = randint(1, 6)
-                    # Incrementa o valor 1 à posição correspondente a face que caiu
-                    faces[face-1] += 1
-                    instancias.append(face)
-                    
-                print(f"\nFaces que cairam após cada lançamento: {instancias}")
-                print(f"\n{'='*5} Número de ocorrências de cada face {'='*5}")
-                for i in range(6):
-                    print(f"Face {i+1}: {faces[i]}")
-                break
-            else:
-                print("\nERRO: O número de lançamentos não pode ser menor ou igual a zero. Tente novamente!")             
-        except:
-            print("\nERRO: Entrada inválida, digite apenas números. Tente novamente!")          
-    
-if __name__=="__main__":
+    # Testes válidos
+    resultado = lancar_dado(10)
+    assert type(resultado) == list
+    assert len(resultado) == 6
+    assert sum(resultado) == 10
+
+    resultado = lancar_dado(100)
+    assert type(resultado) == list
+    assert len(resultado) == 6
+    assert sum(resultado) == 100
+
+    # Testes inválidos
+    assert lancar_dado(0) == Exception
+    assert lancar_dado(-5) == Exception
+    assert lancar_dado("dez") == Exception
+    assert lancar_dado("") == Exception
+    assert lancar_dado(None) == Exception
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()

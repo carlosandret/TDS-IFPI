@@ -2,31 +2,31 @@
 
 # Função que copia os valores negativos de uma lista para outra separada, retornando a nova lista
 def retira_negativos(lista):
+    if type(lista) != list:
+        return Exception
+    
     nova_lista = []
     for i in range(len(lista)):
+        if type(lista[i]) not in [int, float]:
+            return Exception
         if lista[i] < 0:
             nova_lista.append(lista[i])
     return nova_lista
 
 def main():
-    lista_numeros = []
-    cont = 0
-    print("-----------Digite uma lista de 10 números.-----------")
-    while cont < 10:
-        try:
-            cont += 1
-            valor = int(input("--> "))
-            lista_numeros.append(valor)
-        except:
-            cont -= 1
-            print("\nERRO: Entrada inválida, não podem haver valores vazios, devem ser números!")  
-                            
-    nova_lista = retira_negativos(lista_numeros)
-    print(f"Lista original (x): {lista_numeros}")
-    # Confere se a lista está vazia
-    if not nova_lista:
-        print("\nA lista X não possui valores negativos!")
-    else:   
-        print(f"\nLista X sem valores negativos: {nova_lista}")
-if __name__=="__main__":
+    # Testes válidos
+    assert retira_negativos([1, -2, 3, -4, 5]) == [-2, -4]
+    assert retira_negativos([-1, -2, -3]) == [-1, -2, -3]
+    assert retira_negativos([0, 2, 4]) == []
+    assert retira_negativos([]) == []
+
+    # Testes inválidos
+    assert retira_negativos("não é lista") == Exception
+    assert retira_negativos(None) == Exception
+    assert retira_negativos([1, "a", 3]) == Exception
+    assert retira_negativos([1, 2, [3]]) == Exception
+
+    print("Todos os testes passaram!")
+
+if __name__ == "__main__":
     main()
