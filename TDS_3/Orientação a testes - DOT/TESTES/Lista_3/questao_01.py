@@ -17,3 +17,4 @@ assert remove_repeticao([5, 4, 5, 7, 3, 4]) == [5, 4, 7, 3]
 assert remove_repeticao(['a', 'b', 'c', 'f']) == Exception
 assert remove_repeticao([5, 9, 7, 'c', 'f']) == Exception
 
+assert remove_repeticao
